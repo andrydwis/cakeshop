@@ -20,3 +20,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+//testing page
+Route::get('/testing', function () {
+    return view('testing.adminDashboard');
+});
