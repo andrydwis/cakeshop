@@ -4,7 +4,8 @@
     @csrf
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}">
+        <input type="email" name="email" id="email" 
+        class="text-4xl form-control @error('email') is-invalid @enderror" value="{{old('email')}}">
         @error('email')
         <div class="invalid-feedback">
             {{$message}}
