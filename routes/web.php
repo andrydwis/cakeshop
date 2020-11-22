@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+require __DIR__.'/auth.php';
+
 Route::view('/', 'init')->name('init');
 
-Route::get('/dashboard', function () {
+//admin
+Route::get('dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+//contact
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::patch('contact/{contact}', [ContactController::class, 'update'])->name('contact.update');
+
+//categories
+Route::resource('categories', CategoryController::class);
 
 //testing page
-Route::get('/testing', function () {
+Route::get('testing', function () {
     return view('testing.adminDashboard');
 });

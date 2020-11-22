@@ -22,5 +22,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123'),
             'role' => 'admin',
         ]);
+
+        DB::table('contacts')->insert([
+            'whatsapp' => '+123',
+            'email' => 'admin@gmail.com',
+            'facebook' => 'Kirigaya Kirito',
+            'twitter' => '@wibu',
+            'instagram' => '@instagram'
+        ]);
     }
 }

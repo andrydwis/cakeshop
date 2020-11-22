@@ -15,6 +15,10 @@ class ContactController extends Controller
     public function index()
     {
         //
+        $data = [
+            'contact' => Contact::first(),
+        ];
+        return view('admin.contact-index', $data);
     }
 
     /**
@@ -70,6 +74,14 @@ class ContactController extends Controller
     public function update(Request $request, Contact $contact)
     {
         //
+        $contact->whatsapp = $request->whatsapp;
+        $contact->email = $request->email;
+        $contact->facebook = $request->facebook;
+        $contact->twitter = $request->twitter;
+        $contact->instagram = $request->instagram;
+        $contact->save();
+
+        return back();
     }
 
     /**
