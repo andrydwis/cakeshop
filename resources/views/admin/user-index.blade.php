@@ -3,6 +3,7 @@
 <div class="section-header">
     <h1>Data Pegawai</h1>
 </div>
+@include('layouts.alert')
 <div class="section-body">
     <div class="card card-primary">
         <div class="card-header flex-row justify-content-between">
@@ -25,7 +26,9 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->phone}}</td>
-                        <td>WIP</td>
+                        <td>
+                            <button class="btn btn-icon btn-danger trigger--fire-modal-{{$user->id}}" id="modal-{{$user->id}}"><i class="fas fa-trash"></i></button>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -34,10 +37,35 @@
     </div>
 </div>
 @endsection
+<!-- modal -->
+@foreach($users as $user)
+<div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-{{$user->id}}" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hapus Pegawai</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span><i class="fas fa-times-circle"></i></span></button>
+            </div>
+            <div class="modal-body">
+                Apa anda yakin ingin menghapus pegawai {{$user->name}} ?
+            </div>
+            <div class="modal-footer flex justify-content-center">
+                <form action="{{route('users.destroy', ['user' => $user])}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" class="btn btn-danger btn-icon" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                    <button type="submit" class="btn btn-primary btn-icon"><i class="fas fa-check"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+<!-- custom -->
 @section('customCSS')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/r-2.2.6/datatables.min.css" />
 @endsection
 @section('customJS')
+<script src="{{asset('assets/js/bootstrap-modal.js')}}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/r-2.2.6/datatables.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -47,7 +75,10 @@
                 null,
                 null,
                 null,
-                {searchable:false, orderable:false}
+                {
+                    searchable: false,
+                    orderable: false
+                }
             ]
         });
     });

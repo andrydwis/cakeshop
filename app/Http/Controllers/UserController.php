@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         //
         $data = [
-            'users' => User::all(),
+            'users' => User::where('id', '!=', auth()->user()->id)->get(),
         ];
         return view('admin.user-index', $data);
     }
@@ -85,5 +85,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+        session()->flash('status', 'Pegawai ' . $user->name . ' berhasil dihapus');
+
+        $user->delete();
+
+        return redirect()->route('users');
     }
 }

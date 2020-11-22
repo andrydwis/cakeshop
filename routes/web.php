@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     //admin
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::get('users', [UserController::class, 'index'])->name('users');
+    Route::delete('users/{user:name}', [UserController::class, 'destroy'])->name('users.destroy');
 
     //contact
     Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
