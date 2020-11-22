@@ -1,27 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Covidex</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/modules/select2/dist/css/select2.min.css') }}">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/components.min.css') }}">
+
+    <!-- CustomCSS -->
     @yield('customCSS')
-
-    <title>Hello, world!</title>
 </head>
 
 <body>
-    <div class="container">
-    @yield('content')
+    <div id="app">
+        <div class="main-wrapper">
+            @include('layouts.navbar')
+            @include('layouts.sidebar')
+            <div class="main-content">
+                <section class="section">
+                    @yield('content')
+                </section>
+            </div>
+            @include('layouts.footer')
+        </div>
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- General JS Scripts -->
+    <script src="{{ asset('assets/modules/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/popper.js') }}"></script>
+    <script src="{{ asset('assets/modules/tooltip.js') }}"></script>
+    <script src="{{ asset('assets/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/stisla.js') }}"></script>
+    <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
 
-    <!-- Option 1: Bootstrap Bundle with Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
+    <!-- Template JS File -->
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+
+    <!-- CustomJS -->
     @yield('customJS')
 </body>
 

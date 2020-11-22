@@ -34,12 +34,14 @@ class RegisteredUserController extends Controller
             'nama' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'telepon' => 'numeric'
         ]);
 
         User::create([
             'name' => $request->nama,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'phone' => '+62'.$request->phone,
             'role' => 'servant'
         ]);
 

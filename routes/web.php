@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
-Route::view('/', 'init')->name('init');
+Route::view('/', 'init.main')->name('init');
 
 //admin
 Route::get('dashboard', function () {
@@ -30,8 +30,3 @@ Route::patch('contact/{contact}', [ContactController::class, 'update'])->name('c
 
 //categories
 Route::resource('categories', CategoryController::class);
-
-//testing page
-Route::get('testing', function () {
-    return view('testing.adminDashboard');
-});
