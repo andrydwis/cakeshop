@@ -2,7 +2,6 @@
 @section('content')
 <div class="section-header" data-aos="fade-up" data-aos-delay="500">
     <h1>Profile</h1>
-    
 </div>
 <div class="section-body">
     <div class="row">

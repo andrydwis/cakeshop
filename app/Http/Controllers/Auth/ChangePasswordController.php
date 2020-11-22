@@ -19,7 +19,7 @@ class ChangePasswordController extends Controller
         return view('init.edit-password', $data);
     }
 
-    public function update(User $user, Request $request)
+    public function update(Request $request)
     {
         $request->validate([
             'password' => ['required', 'string', 'min:8', 'confirmed'],
