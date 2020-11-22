@@ -1,7 +1,7 @@
 <!-- navbar background color -->
 <div class="navbar-bg"></div>
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg main-navbar">
+<nav class="navbar navbar-expand-lg main-navbar bg-gradient-warning">
     <!-- navbar nav left -->
     <form class="form-inline mr-auto">
         <!-- navbar toggler -->

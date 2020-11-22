@@ -27,19 +27,23 @@
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-server"></i><span>WIP</span></a>
                 <ul class="dropdown-menu">
-                    
+
                 </ul>
             </li>
             @endauth
         </ul>
-        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+        <div class="mt-4 mb-4 p-3 hide-sidebar-mini fixed-bottom">
             @guest
-            <a href="{{route('login')}}" class="btn btn-primary btn-lg btn-block btn-icon-split"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a href="{{route('login')}}" class="btn btn-primary btn-lg d-none d-lg-block btn-icon-split" style="width: 200px;">
+            <i class="fas fa-sign-in-alt"></i> Login</a>
             @endguest
             @auth
             <form method="POST" action="{{route('logout')}}">
                 @csrf
-                <button class="btn btn-danger btn-lg btn-block btn-icon-split" type="submit"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                <button class="btn btn-danger btn-lg btn-icon-split d-none d-lg-block" type="submit" style="width: 200px;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
             </form>
             @endauth
         </div>

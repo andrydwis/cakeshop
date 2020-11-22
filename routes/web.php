@@ -36,3 +36,8 @@ Route::middleware(['auth'])->group(function () {
     //categories
     Route::resource('categories', CategoryController::class);
 });
+
+// testing page
+Route::get('/homepage', function () {
+    return view('testing.homepage');
+})->name('homepage');
