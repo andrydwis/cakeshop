@@ -15,7 +15,7 @@
             <li class="menu-header">Menu</li>
             <!-- menu item -->
             <li>
-                <a href="{{route('init')}}"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="{{route('init')}}"><i class="fas fa-home"></i><span>Beranda</span></a>
             </li>
             @auth
             <li>
@@ -25,7 +25,7 @@
                 <a href="{{route('create-users')}}"><i class="fas fa-users"></i><span>Pegawai</span></a>
             </li>
             <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-server"></i><span>Data Covid</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-server"></i><span>WIP</span></a>
                 <ul class="dropdown-menu">
                     
                 </ul>

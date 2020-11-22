@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="section-header" data-aos="fade-up" data-aos-delay="500">
-    <h1>Setting Password</h1>
+    <h1>Pengaturan Password</h1>
 </div>
 @include('layouts.alert')
 <div class="section-body">
@@ -12,20 +12,11 @@
                     <h4>Password</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user-password.update') }}">
+                    <form method="POST" action="{{ route('change-password') }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="current_password">Current Password</label>
-                            <input id="current_password" type="password" class="form-control @error('current_password'){{'is-invalid'}}@enderror" name="current_password" autofocus>
-                            @error('current_password')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="password">New Password</label>
+                            <label for="password">Password Baru</label>
                             <input id="password" type="password" class="form-control @error('password'){{'is-invalid'}}@enderror" name="password">
                             @error('password')
                             <div class="invalid-feedback">
@@ -34,7 +25,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="password_confirmation">Confirmation Password</label>
+                            <label for="password_confirmation">Konfirmasi Password</label>
                             <input id="password_confirmation" type="password" class="form-control @error('password_confirmation'){{'is-invalid'}}@enderror" name="password_confirmation">
                             @error('password_confirmation')
                             <div class="invalid-feedback">
@@ -44,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                Save
+                                Simpan
                             </button>
                         </div>
                     </form>

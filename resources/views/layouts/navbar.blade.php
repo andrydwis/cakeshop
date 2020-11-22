@@ -21,10 +21,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="" class="dropdown-item has-icon">
-                    <i class="fas fa-user"></i> Profile
+                    <i class="fas fa-user"></i> Profil
                 </a>
-                <a href="" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
+                <a href="{{route('setting')}}" class="dropdown-item has-icon">
+                    <i class="fas fa-cog"></i> Pengaturan
                 </a>
             </div>
         </li>

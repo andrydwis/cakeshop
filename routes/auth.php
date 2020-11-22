@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/create-users', [RegisteredUserController::class, 'create'])
@@ -20,4 +21,11 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout')
+    ->middleware('auth');
+
+Route::get('setting/password', [ChangePasswordController::class, 'edit'])
+    ->name('change-password')
+    ->middleware('auth');
+
+Route::put('setting/password', [ChangePasswordController::class, 'update'])
     ->middleware('auth');

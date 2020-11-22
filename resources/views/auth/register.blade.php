@@ -3,6 +3,7 @@
 <div class="section-header" data-aos="fade-up" data-aos-delay="500">
     <h1>Tambah Pegawai</h1>
 </div>
+@include('layouts.alert')
 <div class="section-body">
     <div class="card card-primary" data-aos="fade-up" data-aos-delay="1000">
         <div class="card-header">

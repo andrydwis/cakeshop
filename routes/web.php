@@ -15,18 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::view('/', 'init.main')->name('init');
 
-//admin
-Route::get('dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    //settings
+    Route::view('setting', 'init.setting')->name('setting');
 
-//contact
-Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
-Route::patch('contact/{contact}', [ContactController::class, 'update'])->name('contact.update');
+    //admin
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 
-//categories
-Route::resource('categories', CategoryController::class);
+    //contact
+    Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::patch('contact/{contact}', [ContactController::class, 'update'])->name('contact.update');
+
+    //categories
+    Route::resource('categories', CategoryController::class);
+});

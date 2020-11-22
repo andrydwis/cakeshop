@@ -31,20 +31,22 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|confirmed|min:8',
-            'telepon' => 'numeric'
+            'nama' => ['required','string','max:255'],
+            'email' => ['required','string','email','max:255','unique:users'],
+            'password' => ['required','string','confirmed','min:8'],
+            'telepon' => ['numeric']
         ]);
 
         User::create([
             'name' => $request->nama,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'phone' => '+62'.$request->phone,
+            'phone' => '+62' . $request->telepon,
             'role' => 'servant'
         ]);
 
-        return redirect()->route('dashboard');
+        session()->flash('status', 'Pegawai ' . $request->nama . ' berhasil ditambahkan');
+
+        return redirect()->route('create-users');
     }
 }
