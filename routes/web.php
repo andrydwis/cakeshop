@@ -26,7 +26,11 @@ Route::middleware(['auth'])->group(function () {
 
     //admin
     Route::view('dashboard', 'dashboard')->name('dashboard');
-    Route::get('users', [UserController::class, 'index'])->name('users');
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('users/{user:name}', [UserController::class, 'edit'])->name('users.edit');
+    Route::patch('users/{user:name}', [UserController::class, 'update'])->name('users.update');
+    Route::get('users/{user:name}/reset', [UserController::class, 'resetView'])->name('users.reset-view');
+    Route::put('users/{user:name}/reset', [UserController::class, 'reset'])->name('users.reset');
     Route::delete('users/{user:name}', [UserController::class, 'destroy'])->name('users.destroy');
 
     //contact

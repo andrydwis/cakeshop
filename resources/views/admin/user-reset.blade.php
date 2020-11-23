@@ -12,7 +12,7 @@
                     <h4>Password</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('change-password')}}">
+                    <form method="POST" action="{{route('users.reset', ['user' => $user])}}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">

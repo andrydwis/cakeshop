@@ -22,7 +22,7 @@
                 <a href="{{route('dashboard')}}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li>
-                <a href="{{route('users')}}"><i class="fas fa-users"></i><span>Pegawai</span></a>
+                <a href="{{route('users.index')}}"><i class="fas fa-users"></i><span>Pegawai</span></a>
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-server"></i><span>WIP</span></a>

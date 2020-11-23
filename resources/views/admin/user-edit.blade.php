@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="section-header" data-aos="fade-up" data-aos-delay="500">
-    <h1>Tambah Pegawai</h1>
+    <h1>Update Pegawai</h1>
 </div>
 @include('layouts.alert')
 <div class="section-body">
@@ -9,15 +9,16 @@
         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
             <div class="card card-primary">
                 <div class="card-header flex flex-row justify-content-between">
-                    <h4>Tambah</h4>
+                    <h4>Update</h4>
                     <a href="{{route('users.index')}}" class="btn btn-primary">Kembali</a>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('create-users')}}">
+                    <form method="POST" action="{{route('users.update', ['user' => $user])}}">
                         @csrf
+                        @method('PATCH')
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input id="nama" type="text" class="form-control @error('nama'){{'is-invalid'}}@enderror" name="nama" value="{{old('nama') ?? ''}}" autofocus>
+                            <input id="nama" type="text" class="form-control @error('nama'){{'is-invalid'}}@enderror" name="nama" value="{{old('nama') ?? $user->name}}" autofocus>
                             @error('nama')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -26,26 +27,8 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input id="email" type="email" class="form-control @error('email'){{'is-invalid'}}@enderror" name="email" value="{{old('email') ?? ''}}">
+                            <input id="email" type="email" class="form-control @error('email'){{'is-invalid'}}@enderror" name="email" value="{{old('email') ?? $user->email}}">
                             @error('email')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="control-label">Password</label>
-                            <input id="password" type="password" class="form-control @error('password'){{'is-invalid'}}@enderror" name="password">
-                            @error('password')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="password_confirmation" class="control-label">Konfirmasi Password</label>
-                            <input id="password_confirmation" type="password" class="form-control @error('password_confirmation'){{'is-invalid'}}@enderror" name="password_confirmation">
-                            @error('password_confirmation')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -57,7 +40,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">+62</span>
                                 </div>
-                                <input id="telepon" type="text" class="form-control @error('telepon'){{'is-invalid'}}@enderror" name="telepon" value="{{old('telepon') ?? ''}}">
+                                <input id="telepon" type="text" class="form-control @error('telepon'){{'is-invalid'}}@enderror" name="telepon" value="{{old('telepon') ?? substr($user->phone, 3)}}">
                                 @error('telepon')
                                 <div class="invalid-feedback">
                                     {{$message}}

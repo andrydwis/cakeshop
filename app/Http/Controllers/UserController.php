@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -62,6 +64,10 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
+        $data = [
+            'user' => $user,
+        ];
+        return view('admin.user-edit', $data);
     }
 
     /**
@@ -74,6 +80,20 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $request->validate([
+            'nama' => ['required','string','max:255'],
+            'email' => ['required','string','email','max:255', Rule::unique(User::class)->ignore($user->id)],
+            'telepon' => ['required','numeric']
+        ]);
+
+        $user->name = $request->nama;
+        $user->email = $request->email;
+        $user->phone = $request->telepon;
+        $user->save();
+
+        session()->flash('status', 'Pegawai ' . $user->name . ' berhasil diupdate');
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -89,6 +109,27 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users');
+        return redirect()->route('users.index');
+    }
+
+    public function resetView(User $user) {
+        $data = [
+            'user' => $user,
+        ];
+        return view('admin.user-reset', $data);
+    }
+
+    public function reset(Request $request, User $user)
+    {
+        $request->validate([
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        session()->flash('status', 'Password ' . $user->name . ' berhasil direset');
+
+        return redirect()->route('users.index');
     }
 }

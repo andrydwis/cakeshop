@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
             'nama' => ['required','string','max:255'],
             'email' => ['required','string','email','max:255','unique:users'],
             'password' => ['required','string','confirmed','min:8'],
-            'telepon' => ['numeric']
+            'telepon' => ['required','numeric']
         ]);
 
         User::create([

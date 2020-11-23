@@ -11,7 +11,7 @@
             <a href="{{route('create-users')}}" class="btn btn-primary">Tambah Pegawai</a>
         </div>
         <div class="card-body">
-            <table id="users" class="table table-bordered table-hover" style="width:100%">
+            <table id="users" class="table table-hover" style="width:100%">
                 <thead>
                     <tr>
                         <th>Nama</th>
@@ -27,7 +27,9 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->phone}}</td>
                         <td>
-                            <button class="btn btn-icon btn-danger trigger--fire-modal-{{$user->id}}" id="modal-{{$user->id}}"><i class="fas fa-trash"></i></button>
+                            <a href="{{route('users.edit', ['user' => $user])}}" class="btn btn-primary btn-icon"><i class="fas fa-edit"></i></a>
+                            <a href="{{route('users.reset-view', ['user' => $user])}}" class="btn btn-primary btn-icon"><i class="fas fa-unlock"></i></a>
+                            <button class="btn btn-icon btn-danger" id="modal-destroy-{{$user->id}}" data-toggle="modal" data-target="#modal-destroy-{{$user->id}}"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                     @endforeach
@@ -39,7 +41,7 @@
 @endsection
 <!-- modal -->
 @foreach($users as $user)
-<div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-{{$user->id}}" aria-hidden="true" style="display: none;">
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-destroy-{{$user->id}}" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -71,8 +73,9 @@
     $(document).ready(function() {
         $('#users').DataTable({
             responsive: true,
-            columns: [
-                null,
+            columns: [{
+                    width: '20%'
+                },
                 null,
                 null,
                 {
