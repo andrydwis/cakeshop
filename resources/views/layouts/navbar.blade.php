@@ -16,7 +16,7 @@
         <!-- navbar right item -->
         @auth
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">            
-                <img alt="image" src="{{asset('assets/img/avatar/avatar-1.png')}}" width="30" height="30" class="rounded-circle mr-1">
+                <img alt="image" src="https://ui-avatars.com/api/?name={{auth()->user()->name}}" width="30" height="30" class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">Halo, {{auth()->user()->name}}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
