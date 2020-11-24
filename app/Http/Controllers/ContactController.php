@@ -74,12 +74,19 @@ class ContactController extends Controller
     public function update(Request $request, Contact $contact)
     {
         //
-        $contact->whatsapp = $request->whatsapp;
+        $request->validate([
+            'whatsapp' => ['numeric'],
+            'email' => ['email'],
+        ]);
+
+        $contact->whatsapp = '+62' . $request->whatsapp;
         $contact->email = $request->email;
         $contact->facebook = $request->facebook;
-        $contact->twitter = $request->twitter;
-        $contact->instagram = $request->instagram;
+        $contact->twitter = '@' . $request->twitter;
+        $contact->instagram = '@' . $request->instagram;
         $contact->save();
+
+        session()->flash('status', 'Kontak berhasil diupdate');
 
         return back();
     }

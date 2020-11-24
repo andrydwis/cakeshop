@@ -305,7 +305,7 @@
         </div>
     </footer>
 
-    
+
     <!-- Template JS File -->
     <script src="{{ ('assets/js/scripts.js') }}"></script>
 

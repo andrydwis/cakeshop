@@ -25,17 +25,25 @@
                 <a href="{{route('users.index')}}"><i class="fas fa-users"></i><span>Pegawai</span></a>
             </li>
             <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-server"></i><span>WIP</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-server"></i><span>Menu</span></a>
                 <ul class="dropdown-menu">
-
+                    <li>
+                        <a href=""><i class="fas fa-users"></i><span>Kategori</span></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fas fa-users"></i><span>Produk</span></a>
+                    </li>
                 </ul>
+            </li>
+            <li>
+                <a href="{{route('contact.index')}}"><i class="fas fa-users"></i><span>Kontak</span></a>
             </li>
             @endauth
         </ul>
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini fixed-bottom">
             @guest
             <a href="{{route('login')}}" class="btn btn-primary btn-lg d-none d-lg-block btn-icon-split" style="width: 200px;">
-            <i class="fas fa-sign-in-alt"></i> Login</a>
+                <i class="fas fa-sign-in-alt"></i> Login</a>
             @endguest
             @auth
             <form method="POST" action="{{route('logout')}}">
