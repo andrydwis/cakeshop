@@ -28,15 +28,15 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-server"></i><span>Menu</span></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href=""><i class="fas fa-users"></i><span>Kategori</span></a>
+                        <a href="{{route('categories.index')}}"><i class="fas fa-layer-group"></i><span>Kategori</span></a>
                     </li>
                     <li>
-                        <a href=""><i class="fas fa-users"></i><span>Produk</span></a>
+                        <a href=""><i class="fas fa-birthday-cake"></i><span>Produk</span></a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="{{route('contact.index')}}"><i class="fas fa-users"></i><span>Kontak</span></a>
+                <a href="{{route('contact.index')}}"><i class="fas fa-address-card"></i><span>Kontak</span></a>
             </li>
             @endauth
         </ul>

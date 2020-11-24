@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -15,6 +16,11 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $data = [
+            'categories' => Category::all()
+        ];
+
+        return view('category.index', $data);
     }
 
     /**
@@ -25,6 +31,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('category.create');
     }
 
     /**
@@ -36,6 +43,18 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nama' => ['required'],
+        ]);
+
+        $category = new Category();
+        $category->name = $request->nama;
+        $category->slug = Str::slug($request->nama);
+        $category->save();
+
+        session()->flash('status', 'Kategori '.$category->name.' berhasil ditambahkan');
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -58,6 +77,11 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+        $data = [
+            'category' => $category
+        ];
+
+        return view('category.edit', $data);
     }
 
     /**
@@ -70,6 +94,17 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        $request->validate([
+            'nama' => ['required'],
+        ]);
+
+        $category->name = $request->nama;
+        $category->slug = Str::slug($request->nama);
+        $category->save();
+
+        session()->flash('status', 'Kategori '.$category->name.' berhasil diupdate');
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -81,5 +116,10 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        session()->flash('status', 'Kategori '.$category->name.' berhasil dihapus');
+
+        $category->delete();
+
+        return redirect()->route('categories.index');
     }
 }

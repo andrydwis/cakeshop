@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="section-header" data-aos="fade-up" data-aos-delay="500">
+<div class="section-header">
     <h1>Tambah Pegawai</h1>
 </div>
 @include('layouts.alert')

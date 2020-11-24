@@ -38,7 +38,9 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('contact/{contact}', [ContactController::class, 'update'])->name('contact.update');
 
     //categories
-    Route::resource('categories', CategoryController::class);
+    Route::resource('categories', CategoryController::class)->parameters([
+        'categories' => 'category:slug',
+    ]);
 });
 
 // testing page
