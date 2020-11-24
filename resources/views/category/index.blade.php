@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="section-header">
-    <h1>Data Kategori</h1>
+    <h1>Daftar Kategori</h1>
 </div>
 @include('layouts.alert')
 <div class="section-body">

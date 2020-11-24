@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="section-header">
-    <h1>Kontak</h1>
+    <h1>Daftar Kontak</h1>
 </div>
 @include('layouts.alert')
 <div class="section-body">
@@ -9,7 +9,7 @@
         <div class="col-12 col-lg-6">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h4>Daftar Kontak</h4>
+                    <h4>Kontak</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{route('contact.update', ['contact' => $contact])}}" method="post">

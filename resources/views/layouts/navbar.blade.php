@@ -1,5 +1,5 @@
 <!-- navbar background color -->
-<div class="navbar-bg bg-primary"></div>
+<div class="navbar-bg"></div>
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg main-navbar">
     <!-- navbar nav left -->

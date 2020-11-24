@@ -40,15 +40,15 @@
             </li>
             @endauth
         </ul>
-        <div class="mt-4 mb-4 p-3 hide-sidebar-mini fixed-bottom">
+        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
             @guest
-            <a href="{{route('login')}}" class="btn btn-primary btn-lg d-none d-lg-block btn-icon-split" style="width: 200px;">
+            <a href="{{route('login')}}" class="btn btn-primary btn-lg btn-icon-split" style="width: 200px;">
                 <i class="fas fa-sign-in-alt"></i> Login</a>
             @endguest
             @auth
             <form method="POST" action="{{route('logout')}}">
                 @csrf
-                <button class="btn btn-danger btn-lg btn-icon-split d-none d-lg-block" type="submit" style="width: 200px;">
+                <button class="btn btn-danger btn-lg btn-icon-split" type="submit" style="width: 200px;">
                     <i class="fas fa-sign-out-alt"></i>
                     Logout
                 </button>
