@@ -22,7 +22,7 @@
         <div class="col-12 col-md-8 col-lg-8">
             <div class="h-100 d-flex align-items-center">
                 <div class="text-center text-md-left my-3">
-                    <h3 class="h3 font-weight-bold">What is Covidex ?</h3>
+                    <h3 class="h3 font-weight-bold">What is LelyCake ?</h3>
                     <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, ad?</p>
                 </div>
             </div>
