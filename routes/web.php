@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,11 +23,13 @@ require __DIR__ . '/auth.php';
 Route::view('/', 'init.main')->name('init');
 
 Route::middleware(['auth'])->group(function () {
+    //dashboard
+    Route::get('dashboard', DashboardController::class)->name('dashboard');
+
     //settings
     Route::view('setting', 'init.setting')->name('setting');
 
     //admin
-    Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/{user:name}', [UserController::class, 'edit'])->name('users.edit');
     Route::patch('users/{user:name}', [UserController::class, 'update'])->name('users.update');
