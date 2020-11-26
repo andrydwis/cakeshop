@@ -31,7 +31,7 @@
                         <a href="{{route('categories.index')}}"><i class="fas fa-layer-group"></i><span>Kategori</span></a>
                     </li>
                     <li>
-                        <a href=""><i class="fas fa-birthday-cake"></i><span>Produk</span></a>
+                        <a href="{{route('products.index')}}"><i class="fas fa-birthday-cake"></i><span>Produk</span></a>
                     </li>
                 </ul>
             </li>

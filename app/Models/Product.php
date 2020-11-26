@@ -17,4 +17,9 @@ class Product extends Model
         'description',
         'price'
     ];
+
+    public function Category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
 }

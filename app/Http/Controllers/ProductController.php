@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -15,6 +18,11 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $data = [
+            'products' => Product::all(),
+        ];
+
+        return view('product.index', $data);
     }
 
     /**
@@ -25,6 +33,10 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $data = [
+            'categories' => Category::all()
+        ];
+        return view('product.create', $data);
     }
 
     /**
@@ -36,6 +48,26 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'kategori' => ['required'],
+            'nama' => ['required'],
+            'gambar' => ['required', 'mimes:jpg,jpeg,png'],
+            'deskripsi' => ['required'],
+            'harga' => ['required', 'numeric', 'min:1']
+        ]);
+
+        $product = new Product();
+        $product->category_id = $request->kategori;
+        $product->name = $request->nama;
+        $product->slug = Str::slug($request->nama);
+        $product->image = $request->file('gambar')->store('products');
+        $product->description = $request->deskripsi;
+        $product->price = $request->harga;
+        $product->save();
+
+        session()->flash('status', 'Produk ' . $product->name . ' berhasil ditambahkan');
+
+        return redirect()->route('products.index');
     }
 
     /**
@@ -47,6 +79,11 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+        $data = [
+            'product' => $product,
+        ];
+
+        return view('product.show', $data);
     }
 
     /**
@@ -58,6 +95,12 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $data = [
+            'product' => $product,
+            'categories' => Category::all()
+        ];
+
+        return view('product.edit', $data);
     }
 
     /**
@@ -70,6 +113,47 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        if ($request->gambar) {
+            Storage::delete($product->image);
+
+            $request->validate([
+                'kategori' => ['required'],
+                'nama' => ['required'],
+                'gambar' => ['mimes:jpg,jpeg,png'],
+                'deskripsi' => ['required'],
+                'harga' => ['required', 'numeric', 'min:1']
+            ]);
+
+            $product->category_id = $request->kategori;
+            $product->name = $request->nama;
+            $product->slug = Str::slug($request->nama);
+            $product->image = $request->file('gambar')->store('products');
+            $product->description = $request->deskripsi;
+            $product->price = $request->harga;
+            $product->save();
+
+            session()->flash('status', 'Produk ' . $product->name . ' berhasil diupdate');
+
+            return redirect()->route('products.index');
+        } else {
+            $request->validate([
+                'kategori' => ['required'],
+                'nama' => ['required'],
+                'deskripsi' => ['required'],
+                'harga' => ['required', 'numeric', 'min:1']
+            ]);
+
+            $product->category_id = $request->kategori;
+            $product->name = $request->nama;
+            $product->slug = Str::slug($request->nama);
+            $product->description = $request->deskripsi;
+            $product->price = $request->harga;
+            $product->save();
+
+            session()->flash('status', 'Produk ' . $product->name . ' berhasil diupdate');
+
+            return redirect()->route('products.index');
+        }
     }
 
     /**
@@ -81,5 +165,11 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        session()->flash('status', 'Produk ' . $product->name . ' berhasil dihapus');
+
+        Storage::delete($product->image);
+        $product->delete();
+
+        return redirect()->route('products.index');
     }
 }

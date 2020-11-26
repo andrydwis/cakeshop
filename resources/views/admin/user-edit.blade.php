@@ -40,7 +40,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">+62</span>
                                 </div>
-                                <input id="telepon" type="text" class="form-control @error('telepon'){{'is-invalid'}}@enderror" name="telepon" value="{{old('telepon') ?? substr($user->phone, 3)}}">
+                                <input id="telepon" type="number" class="form-control @error('telepon'){{'is-invalid'}}@enderror" name="telepon" value="{{old('telepon') ?? substr($user->phone, 3)}}">
                                 @error('telepon')
                                 <div class="invalid-feedback">
                                     {{$message}}

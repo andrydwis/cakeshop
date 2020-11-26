@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,11 @@ Route::middleware(['auth'])->group(function () {
     //categories
     Route::resource('categories', CategoryController::class)->parameters([
         'categories' => 'category:slug',
+    ]);
+
+    //products
+    Route::resource('products', ProductController::class)->parameters([
+        'products' => 'product:slug'
     ]);
 });
 
