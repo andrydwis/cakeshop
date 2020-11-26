@@ -116,9 +116,13 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
-        session()->flash('status', 'Kategori '.$category->name.' berhasil dihapus');
-
-        $category->delete();
+        try {
+            $category->delete();
+            session()->flash('status', 'Kategori berhasil dihapus');
+        } catch (\Throwable $th) {
+            //throw $th;
+            session()->flash('status', 'Kategori gagal dihapus, terdapat produk dalam kategori ini');
+        }
 
         return redirect()->route('categories.index');
     }
