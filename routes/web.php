@@ -4,6 +4,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\UpdateProfileController;
+use App\Http\Controllers\OtherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +25,11 @@ require __DIR__ . '/auth.php';
 Route::view('/', 'init.main')->name('init');
 
 Route::middleware(['auth'])->group(function () {
+    //profile
+    Route::view('profile', 'init.profile')->name('profile');
+    Route::view('edit-profile', 'init.edit-profile')->name('edit-profile.edit');
+    Route::patch('edit-profile', UpdateProfileController::class)->name('edit-profile.update');
+
     //dashboard
     Route::get('dashboard', DashboardController::class)->name('dashboard');
 
@@ -50,6 +57,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('products', ProductController::class)->parameters([
         'products' => 'product:slug'
     ]);
+
+    //about us
+    Route::get('others', [OtherController::class, 'index'])->name('others.index');
+    Route::patch('others/{about}', [OtherController::class, 'update'])->name('others.update');
 });
 
 // testing page

@@ -38,6 +38,9 @@
             <li>
                 <a href="{{route('contact.index')}}"><i class="fas fa-address-card"></i><span>Kontak</span></a>
             </li>
+            <li>
+                <a href="{{route('others.index')}}"><i class="fas fa-info-circle"></i><span>Lain Lain</span></a>
+            </li>
             @endauth
         </ul>
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

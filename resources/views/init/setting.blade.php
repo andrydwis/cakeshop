@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h4>Profil</h4>
                     <p>Ubah profil anda</p>
-                    <a href="" class="card-cta">Ubah <i class="fas fa-chevron-right"></i></a>
+                    <a href="{{route('edit-profile.edit')}}" class="card-cta">Ubah <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>

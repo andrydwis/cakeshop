@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('123'),
-            'phone' => '851382348234',
+            'phone' => '+62851382348234',
             'role' => 'admin',
         ]);
 
@@ -30,6 +30,10 @@ class DatabaseSeeder extends Seeder
             'facebook' => 'Kirigaya Kirito',
             'twitter' => '@wibu',
             'instagram' => '@instagram'
+        ]);
+
+        DB::table('abouts')->insert([
+            'address' => 'Sooko',
         ]);
     }
 }

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
-<div class="section-header" data-aos="fade-up" data-aos-delay="500">
+<div class="section-header">
     <h1>Pengaturan Password</h1>
 </div>
 @include('layouts.alert')
 <div class="section-body">
     <div class="row">
         <div class="col-12 col-lg-6">
-            <div class="card card-primary" data-aos="fade-up" data-aos-delay="1000">
+            <div class="card card-primary">
                 <div class="card-header">
                     <h4>Password</h4>
                 </div>

@@ -81,14 +81,14 @@ class UserController extends Controller
     {
         //
         $request->validate([
-            'nama' => ['required','string','max:255'],
-            'email' => ['required','string','email','max:255', Rule::unique(User::class)->ignore($user->id)],
-            'telepon' => ['required','numeric']
+            'nama' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
+            'telepon' => ['required', 'numeric']
         ]);
 
         $user->name = $request->nama;
         $user->email = $request->email;
-        $user->phone = $request->telepon;
+        $user->phone = '+62' . $request->telepon;
         $user->save();
 
         session()->flash('status', 'Pegawai ' . $user->name . ' berhasil diupdate');
@@ -112,7 +112,8 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
-    public function resetView(User $user) {
+    public function resetView(User $user)
+    {
         $data = [
             'user' => $user,
         ];

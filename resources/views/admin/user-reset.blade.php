@@ -1,15 +1,16 @@
 @extends('layouts.app')
 @section('content')
 <div class="section-header">
-    <h1>Pengaturan Password</h1>
+    <h1>Reset Password</h1>
 </div>
 @include('layouts.alert')
 <div class="section-body">
     <div class="row">
         <div class="col-12 col-lg-6">
             <div class="card card-primary">
-                <div class="card-header">
+                <div class="card-header flex flex-row justify-content-between">
                     <h4>Password</h4>
+                    <a href="{{route('users.index')}}" class="btn btn-primary">Kembali</a>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{route('users.reset', ['user' => $user])}}">
