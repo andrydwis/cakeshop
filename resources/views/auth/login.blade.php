@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="simple-footer">
-                Covidex &copy; 2020
+                Lely Cake &copy; 2020
             </div>
         </div>
     </div>

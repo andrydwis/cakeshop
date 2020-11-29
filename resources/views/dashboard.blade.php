@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="section-header" data-aos="fade-up" data-aos-delay="500">
+<div class="section-header">
     <h1>Dashboard</h1>
 </div>
 @include('layouts.alert')
@@ -10,7 +10,7 @@
             <div class="hero bg-primary text-white">
                 <div class="hero-inner">
                     <h2>Selamat datang, {{auth()->user()->name}}</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet.</p>
+                    <p class="lead">Bagaimana kabar hari ini ?</p>
                 </div>
             </div>
         </div>

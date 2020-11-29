@@ -18,13 +18,9 @@
 
 <body>
     <div id="app">
-        <div class="main-wrapper">
-            <div class="main-content">
-                <section class="section">
-                    @yield('content')
-                </section>
-            </div>
-        </div>
+        <section class="section">
+            @yield('content')
+        </section>
     </div>
 
     <!-- General JS Scripts -->

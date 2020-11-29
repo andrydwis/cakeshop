@@ -25,28 +25,34 @@ require __DIR__ . '/auth.php';
 Route::view('/', 'init.main')->name('init');
 
 Route::middleware(['auth'])->group(function () {
+    //dashboard
+    Route::get('dashboard', DashboardController::class)->name('dashboard');
+
     //profile
     Route::view('profile', 'init.profile')->name('profile');
     Route::view('edit-profile', 'init.edit-profile')->name('edit-profile.edit');
     Route::patch('edit-profile', UpdateProfileController::class)->name('edit-profile.update');
 
-    //dashboard
-    Route::get('dashboard', DashboardController::class)->name('dashboard');
-
     //settings
     Route::view('setting', 'init.setting')->name('setting');
 
-    //admin
-    Route::get('users', [UserController::class, 'index'])->name('users.index');
-    Route::get('users/{user:name}', [UserController::class, 'edit'])->name('users.edit');
-    Route::patch('users/{user:name}', [UserController::class, 'update'])->name('users.update');
-    Route::get('users/{user:name}/reset', [UserController::class, 'resetView'])->name('users.reset-view');
-    Route::put('users/{user:name}/reset', [UserController::class, 'reset'])->name('users.reset');
-    Route::delete('users/{user:name}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::middleware(['admin'])->group(function () {
+        //admin
+        Route::get('users', [UserController::class, 'index'])->name('users.index');
+        Route::get('users/{user:name}', [UserController::class, 'edit'])->name('users.edit');
+        Route::patch('users/{user:name}', [UserController::class, 'update'])->name('users.update');
+        Route::get('users/{user:name}/reset', [UserController::class, 'resetView'])->name('users.reset-view');
+        Route::put('users/{user:name}/reset', [UserController::class, 'reset'])->name('users.reset');
+        Route::delete('users/{user:name}', [UserController::class, 'destroy'])->name('users.destroy');
 
-    //contact
-    Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
-    Route::patch('contact/{contact}', [ContactController::class, 'update'])->name('contact.update');
+        //contact
+        Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+        Route::patch('contact/{contact}', [ContactController::class, 'update'])->name('contact.update');
+
+        //about us
+        Route::get('others', [OtherController::class, 'index'])->name('others.index');
+        Route::patch('others/{about}', [OtherController::class, 'update'])->name('others.update');
+    });
 
     //categories
     Route::resource('categories', CategoryController::class)->parameters([
@@ -57,13 +63,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('products', ProductController::class)->parameters([
         'products' => 'product:slug'
     ]);
-
-    //about us
-    Route::get('others', [OtherController::class, 'index'])->name('others.index');
-    Route::patch('others/{about}', [OtherController::class, 'update'])->name('others.update');
 });
 
 // testing page
 Route::get('/homepage', function () {
     return view('testing.homepage');
 })->name('homepage');
+
+// Route::view('homepage', 'homepage.index');
