@@ -18,13 +18,14 @@
 
     <!-- CustomCSS -->
     <!-- @yield('customCSS') -->
+
 </head>
 
 <body>
 
     <div class="header">
         <div class="container">
-            <a href="#" class="navbar-brand scroll-top">Lely Cake</a>
+            <a href="#" class="navbar-brand scroll-top brand-font">Lely Cake</a>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
                     <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
@@ -56,12 +57,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <h4>Here you can find delecious foods</h4>
+                    <h4>Lely cake</h4>
                     <h2>Kue Kering terbaik di Malang</h2>
                     <p>Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl
                         non, tempor interdum nisl.</p>
                     <div class="primary-button">
-                        <a href="#" class="scroll-link" data-id="book-table">Order Right Now</a>
+                        <!-- delete me -->
+                        <p>
+                            <b> link dibawah di arahkan ke chat w.a</b>
+                        </p>
+                        <!-- delete me -->
+                        <a href="#" data-id="book-table">Pesan Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -74,41 +80,60 @@
                 <div class="heading">
                     <h2>Produk Terbaru</h2>
                 </div>
+                <!-- delete me -->
+                <p>
+                    <h3>Keterangan : tiap kategori diisi satu makanan yang diupload terbaru</h3>
+                </p>
+                <!-- delete me -->
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="food-item">
-                        <h2>Breakfast</h2>
+                        <h2>Kue Kering</h2>
                         <img src="{{asset('assets/img/homepage/breakfast_item.jpg')}}" alt="">
-                        <div class="price">$4.50</div>
+                        <div class="price">RP 000.000</div>
                         <div class="text-content">
-                            <h4>Kale Chips Art Party</h4>
-                            <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean shorts hexagon
-                                street art knausgaard wolf...</p>
+                            <h4 class="border-bottom-food">nama makanan</h4>
+                            <p>keterangan</p>
+                            <p>
+                                <a href="#">
+                                    <div class="food-link">
+                                        link menuju detail makanan
+                                    </div>
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="food-item">
-                        <h2>Lunch</h2>
+                        <h2>Pizza</h2>
                         <img src="{{asset('assets/img/homepage/lunch_item.jpg')}}" alt="">
-                        <div class="price">$7.50</div>
+                        <div class="price">RP 000.000</div>
                         <div class="text-content">
-                            <h4>Taiyaki Gastro Tousled</h4>
-                            <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean shorts hexagon
-                                street art knausgaard wolf...</p>
+                            <h4 class="border-bottom-food">nama makanan</h4>
+                            <p>keterangan</p>
+                            <p>
+                                <a href="#">
+                                    link menuju detail makanan
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="food-item">
-                        <h2>Dinner</h2>
+                        <h2>Lain-Lain</h2>
                         <img src="{{asset('assets/img/homepage/dinner_item.jpg')}}" alt="">
-                        <div class="price">$12.50</div>
+                        <div class="price">RP 000.000</div>
                         <div class="text-content">
-                            <h4>Batch Squid Jean Shorts</h4>
-                            <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean shorts hexagon
-                                street art knausgaard wolf...</p>
+                            <h4 class="border-bottom-food">nama makanan</h4>
+                            <p>keterangan</p>
+                            <p>
+                                <a href="#">
+                                    link menuju detail makanan
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -116,64 +141,41 @@
         </div>
     </section>
 
-    <section class="breakfast-menu">
+    <section class="services">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="breakfast-menu-content">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="left-image">
-                                    <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <h2>Breakfast Menu</h2>
-                                <div id="owl-breakfast" class="owl-carousel owl-theme">
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="">
+                <h2 class="text-center border-bottom">
+                    Kategori
+                </h2>
+                <!-- delete me -->
+                <p>
+                    <h3>Keterangan : tampilkan seluruh kategori</h3>
+                </p>
+                <!-- delete me -->
 
-                                            <div class="price">$3.50</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean
-                                                    ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="">
-
-                                            <div class="price">$3.50</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean
-                                                    ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="">
-
-                                            <div class="price">$3.50</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean
-                                                    ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <a href="menu.html">
+                            <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
+                            <h4>Kue Kering</h4>
+                        </a>
                     </div>
                 </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <a href="menu.html">
+                            <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
+                            <h4>kategori lain</h4>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
+
 
     <section class="cook-delecious">
         <div class="container">
@@ -185,14 +187,14 @@
                 </div>
                 <div class="col-md-4">
                     <div class="cook-content">
-                        <h4>Pesan Sekarang</h4>
+                        <h4>Customer Service</h4>
                         <div class="contact-content">
-                            <span>You can call us on:</span>
-                            <h6>+ 1234 567 8910</h6>
+                            <span>Hubungi kami untuk info lebih lanjut :</span>
+                            <h6>+62812314991</h6>
                         </div>
-                        <span>or</span>
+                        <span>atau</span>
                         <div class="primary-white-button">
-                            <a href="#" class="scroll-link" data-id="book-table">Order Now</a>
+                            <a href="#" class="scroll-link" data-id="book-table">Chat dengan kami</a>
                         </div>
                     </div>
                 </div>
@@ -206,100 +208,24 @@
     </section>
 
 
-
-    <section class="services">
-        <div class="container">
-            <div class="row">
-                <h1 class="text-center" style="margin-bottom: 20px;">Kategori </h1>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-item">
-                        <a href="menu.html">
-                            <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
-                            <h4>Kue Kering</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-item">
-                        <a href="menu.html">
-                            <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
-                            <h4>Pizza</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-item">
-                        <a href="menu.html">
-                            <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
-                            <h4>Kategori 1</h4>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-item">
-                        <a href="menu.html">
-                            <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
-                            <h4>Kategori 2</h4>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-
-
     <section class="get-app">
         <div class="container">
             <div class="row">
                 <div class="heading">
-                    <h2>Get application for your phone</h2>
-                </div>
-                <div class="primary-white-button">
-                    <a href="#">Download now</a>
+                    <h2 class="quote">" Kami memberikan produk dengan bahan terbaik dan kualitas terbaik "</h2>
+                    <p>
+                        <h2>- Lely Cake</h2>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-
-    <section class="sign-up" style="background-image: url({{asset('assets/img/homepage/signup-bg.jpg')}});">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>Signup for our newsletters</h2>
-                    </div>
-                </div>
-            </div>
-            <form id="contact" action="" method="get">
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-3">
-                        <fieldset>
-                            <input name="email" type="text" class="form-control" id="email" placeholder="Enter your email here..." required>
-                        </fieldset>
-                    </div>
-                    <div class="col-md-2">
-                        <fieldset>
-                            <button type="submit" id="form-submit" class="btn btn-transparent">Send Message</button>
-                        </fieldset>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-
-
 
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <p>Lely Cake - 2020</p>
+                    <p class="brand-font">Lely Cake - 2020</p>
                 </div>
             </div>
         </div>

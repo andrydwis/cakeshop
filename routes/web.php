@@ -70,4 +70,8 @@ Route::get('/homepage', function () {
     return view('testing.homepage');
 })->name('homepage');
 
+Route::get('/menu', function () {
+    return view('testing.menu');
+})->name('menu');
+
 // Route::view('homepage', 'homepage.index');
