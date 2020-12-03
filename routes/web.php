@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\UpdateProfileController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OtherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::view('/', 'init.main')->name('init');
+Route::get('/', [HomeController::class, 'index'])->name('init');
 
 Route::middleware(['auth'])->group(function () {
     //dashboard
@@ -74,4 +75,4 @@ Route::get('/menu', function () {
     return view('testing.menu');
 })->name('menu');
 
-// Route::view('homepage', 'homepage.index');
+
