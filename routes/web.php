@@ -25,6 +25,8 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('init');
 
+Route::get('menu', [HomeController::class, 'menu'])->name('menu');
+
 Route::middleware(['auth'])->group(function () {
     //dashboard
     Route::get('dashboard', DashboardController::class)->name('dashboard');
@@ -67,12 +69,4 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // testing page
-Route::get('/homepage', function () {
-    return view('testing.homepage');
-})->name('homepage');
-
-Route::get('/menu', function () {
-    return view('testing.menu');
-})->name('menu');
-
 

@@ -18,4 +18,13 @@ class HomeController extends Controller
         ];
         return view('homepage.index', $data);
     }
+
+    public function menu(){
+        $data = [
+            'contact' => Contact::first(),
+            'products' => Product::orderBy('created_at', 'desc')->get()->unique('category_id'),
+            'categories' => Category::all()
+        ];
+        return view('homepage.menu', $data);
+    }
 }

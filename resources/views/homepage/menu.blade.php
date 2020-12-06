@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Lely Cake</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--
+Victory Template
+http://www.templatemo.com/tm-507-victory
+-->
+    <title>Menu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Template CSS -->
 
@@ -15,14 +21,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/homepage/owl-carousel.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/homepage/templatemo-style.css')}}">
     <script src="{{ asset('assets/js/homepage/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
-
-    <!-- CustomCSS -->
-    @yield('customCSS')
-
 </head>
 
 <body>
-
     <div class="header">
         <div class="container container-logo">
             <div class="logo">
@@ -62,107 +63,97 @@
     <!--/.header-->
 
 
-    <section class="banner" style="">
+    <section class="page-heading" style="background-image: url({{asset('assets/img/homepage/heading-bg.jpg')}});">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <h4>Lely cake</h4>
-                    <h2>Nikmati Renyahnya</h2>
-                    <p>
-                        Produk olahan kue 100% halal yang aman, bergizi, dan berkualitas sesuai kepuasan konsumen
-                    </p>
-                    <div class="primary-button">
-                        <a href="https://api.whatsapp.com/send?phone={{$contact->whatsapp}}" target="_blank" data-id="book-table">Pesan Sekarang</a>
-                    </div>
+                <div class="col-md-12">
+                    <h1>Menu Kami</h1>
+                    <p>berbagai makanan camilan unik dan menarik, bermacam kue kering dan juga aneka macam pizza</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="featured-food" style="background: url({{asset('assets/img/homepage/bg.svg')}});">
+    @foreach($categories as $category)
+    <section class="breakfast-menu">
         <div class="container">
             <div class="row">
-                <div class="heading">
-                    <h2>Produk Terbaru</h2>
-                </div>
-            </div>
-            <div class="row">
-                @foreach($products as $product)
-                <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>{{$product->category->name}}</h2>
-                        <img src="{{asset('storage/'.$product->image)}}" alt="">
-                        <div class="price">Rp. {{$product->price}}</div>
-                        <div class="text-content">
-                            <h4 class="border-bottom-food">{{$product->name}}</h4>
-                            <p>{{ Str::limit($product->description, 40) }}</p>
-                            <p>
-                                <button class="btn btn-block button" data-toggle="modal" data-target="#{{$product->id}}">
-                                    Detail
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <div class="breakfast-menu-content">
-                                                    <div class="row">
-                                                        <div class="col-md-5">
-                                                            <div class="left-image-modal">
-                                                                <img src="{{asset('storage/'.$product->image)}}" alt="Breakfast">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-7 modal-food">
-                                                            <div class="food-item">
-                                                                <div class="food-item-content">
-                                                                    <h2>{{$product->name}}</h2>
-                                                                    <h4>Harga : Rp. {{$product->price}}</h4>
-                                                                    <p>
-                                                                        {{$product->description}}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="button-group mt-5">
-                                                                <a href="#" class="button-cancel" data-dismiss="modal">Batal</a>
-                                                                <a href="https://api.whatsapp.com/send?phone={{$contact->whatsapp}}&text=Hai%20Lely%20Cake%20%21%0ASaya%20tertarik%20membeli%20{{$product->name}}" target="_blank" class="button">Pesan Sekarang</a>
-                                                                <!-- delete me -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                <div class="col-md-12">
+                    <div class="breakfast-menu-content" style="background-color: #f2f6ff;">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="left-image">
+                                    <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="Breakfast">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h2>{{$category->name}}</h2>
+                                <div id="owl-breakfast" class="owl-carousel owl-theme">
+                                    @foreach($category->products as $product)
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="{{asset('storage/'.$product->image)}}" alt="">
+                                            <div class="price">Rp. {{$product->price}}</div>
+                                            <div class="text-content">
+                                                <h4 class="border-bottom-food">{{$product->name}}</h4>
+                                                <p>{{ Str::limit($product->description, 40) }}</p>
+                                                <p>
+                                                    <button class="btn btn-block button" data-toggle="modal" data-target="#{{$product->id}}">
+                                                        Detail
+                                                    </button>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
+                                    <!-- for each berakhir disini -->
                                 </div>
-                                <!-- modal -->
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                @endforeach
             </div>
         </div>
     </section>
+    @endforeach
 
-    <section class="services">
-        <div class="container">
-            <div class="row">
-                <h2 class="text-center border-bottom">
-                    Kategori
-                </h2>
-                <div class="category-list">
-                    @foreach($categories as $category)
-                    <div class="service-item">
-                        <a href="menu.html">
-                            <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
-                            <h4>{{$category->name}}</h4>
-                        </a>
+    <!-- Modal -->
+    @foreach($products as $product)
+    <div class="modal fade" id="{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="breakfast-menu-content">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="left-image-modal">
+                                    <img src="{{asset('storage/'.$product->image)}}" alt="Breakfast">
+                                </div>
+                            </div>
+                            <div class="col-md-7 modal-food">
+                                <div class="food-item">
+                                    <div class="food-item-content">
+                                        <h2>{{$product->name}}</h2>
+                                        <h4>Harga : Rp. {{$product->price}}</h4>
+                                        <p>
+                                            {{$product->description}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="button-group mt-5">
+                                    <a href="#" class="button-cancel" data-dismiss="modal">Batal</a>
+                                    <a href="https://api.whatsapp.com/send?phone={{$contact->whatsapp}}&text=Hai%20Lely%20Cake%20%21%0ASaya%20tertarik%20membeli%20{{$product->name}}" target="_blank" class="button">Pesan Sekarang</a>
+                                    <!-- delete me -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    @endforeach
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    @endforeach
+    <!-- modal -->
 
     <section class="cook-delecious">
         <div class="container">
@@ -195,23 +186,10 @@
     </section>
 
 
-    <section class="get-app">
-        <div class="container">
-            <div class="row">
-                <div class="heading">
-                    <h2 class="quote">" Kami memberikan produk dengan bahan terbaik dan kualitas terbaik "</h2>
-                    <p>
-                        <h2>- Lely Cake</h2>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col text-center">
+                <div class="coltext-center">
                     <p>Lely Cake - 2020</p>
                 </div>
             </div>
@@ -273,8 +251,13 @@
             };
         }
     </script>
+
+    <script>
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').focus()
+        })
+    </script>
     <!-- CustomJS -->
-    @yield('customJS')
 </body>
 
 </html>
