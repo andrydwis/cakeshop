@@ -63,7 +63,7 @@ http://www.templatemo.com/tm-507-victory
     <!--/.header-->
 
 
-    <section class="page-heading" style="background-image: url({{asset('assets/img/homepage/heading-bg.jpg')}});">
+    <section class="page-heading" style="">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -81,22 +81,16 @@ http://www.templatemo.com/tm-507-victory
                 <div class="col-md-12">
                     <div class="breakfast-menu-content" style="background-color: #f2f6ff;">
                         <div class="row">
-                            <div class="col-md-5">
-                                <div class="left-image">
-                                    <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="Breakfast">
-                                </div>
-                            </div>
-                            <div class="col-md-7">
+                            <div class="col-md-12">
                                 <h2>{{$category->name}}</h2>
-                                <div id="owl-breakfast" class="owl-carousel owl-theme">
                                     @foreach($category->products as $product)
-                                    <div class="item col-md-12">
+                                    <div class="item col-md-4">
                                         <div class="food-item">
                                             <img src="{{asset('storage/'.$product->image)}}" alt="">
                                             <div class="price">Rp. {{$product->price}}</div>
                                             <div class="text-content">
                                                 <h4 class="border-bottom-food">{{$product->name}}</h4>
-                                                <p>{{ Str::limit($product->description, 40) }}</p>
+                                                <p>{{ Str::limit($product->description, 120) }}</p>
                                                 <p>
                                                     <button class="btn btn-block button" data-toggle="modal" data-target="#{{$product->id}}">
                                                         Detail
@@ -107,7 +101,6 @@ http://www.templatemo.com/tm-507-victory
                                     </div>
                                     @endforeach
                                     <!-- for each berakhir disini -->
-                                </div>
                             </div>
                         </div>
                     </div>

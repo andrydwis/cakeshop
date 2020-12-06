@@ -58,6 +58,7 @@ h4,
     padding: 5px;
     margin-top: 10px;
     border-radius: 30px;
+    border: 2px solid #f2745f;
     display: flex;
     justify-content: center;
     color: white;
@@ -66,7 +67,8 @@ h4,
 }
 
 .button:hover {
-    transform: scale(1.1);
+    background: #dd2809;
+    border: 2px solid #f2745f;
     text-decoration: none;
     color: white;
 }
@@ -76,12 +78,11 @@ h4,
     border: 2px solid #f2745f;
     padding: 5px;
     border-radius: 30px;
-     display: flex;
+    display: flex;
     justify-content: center;
     color: #f2745f;
     font-size: medium;
     transition: 200ms all;
- 
 }
 
 .button-cancel:hover {
@@ -91,6 +92,7 @@ h4,
 }
 
 .button-group {
+    margin-top: 20px;
     position: relative;
 }
 
@@ -113,13 +115,28 @@ h4,
     justify-content: space-between;
 }
 
+.kategori{
+    border:2px solid #f2745f;
+    padding: 20px;
+    border-radius: 30px;
+    font-family: 'Nunito Sans';
+    transition: all 200ms;
+    color: white;
+    background: #f2745f;
+}
+
+.kategori:hover{
+    background-color: white;
+    color: #f2745f;
+
+}
 
 @media (max-width: 640px) {
     .category-list {
         display: block;
     }
 
-    .modal-food{
+    .modal-food {
         height: 100%;
     }
 }
@@ -170,6 +187,7 @@ p {
 .primary-white-button a {
     display: inline-block;
     background-color: #fff;
+    border: 1px solid #f2745f;
     color: #f2745f;
     font-size: 13px;
     text-transform: uppercase;
@@ -435,8 +453,6 @@ section.services {
 .services .service-item h4 {
     margin-top: 20px;
     font-size: 22px;
-    color: #121212;
-    font-weight: 600;
     margin-bottom: 0px;
 }
 
@@ -558,6 +574,22 @@ section.featured-food {
     margin-top: 20px;
 }
 
+.col-md-4 .food-item {
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.col-md-4 .food-item img {
+    max-width: 300px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+    position: relative;
+}
+
 .food-item h2 {
     margin-top: 0px;
     margin-bottom: 30px;
@@ -569,7 +601,7 @@ section.featured-food {
 }
 
 .food-item img {
-    /* max-width: 300px; */
+    max-width: 300px;
     width: 100%;
     max-height: 200px;
     object-fit: cover;
@@ -762,6 +794,9 @@ footer ul li i:hover {
 }
 
 section.page-heading {
+    background: url(https://images.unsplash.com/photo-1568051243858-533a607809a5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)
+        rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
     padding: 80px 0px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -807,7 +842,7 @@ section.breakfast-menu .price {
     position: relative;
 }
 
- .left-image-modal img {
+.left-image-modal img {
     min-height: 420px;
     width: 100%;
     max-width: 360px;

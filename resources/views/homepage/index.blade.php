@@ -95,7 +95,7 @@
                         <div class="price">Rp. {{$product->price}}</div>
                         <div class="text-content">
                             <h4 class="border-bottom-food">{{$product->name}}</h4>
-                            <p>{{ Str::limit($product->description, 40) }}</p>
+                            <p>{{ Str::limit($product->description, 100) }}</p>
                             <p>
                                 <button class="btn btn-block button" data-toggle="modal" data-target="#{{$product->id}}">
                                     Detail
@@ -153,9 +153,8 @@
                 <div class="category-list">
                     @foreach($categories as $category)
                     <div class="service-item">
-                        <a href="menu.html">
-                            <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
-                            <h4>{{$category->name}}</h4>
+                        <a href="{{route('menu')}}">
+                            <h4 class="kategori">{{$category->name}}</h4>
                         </a>
                     </div>
                     @endforeach
