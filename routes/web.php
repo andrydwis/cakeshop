@@ -69,4 +69,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // testing page
+Route::view('tentang', 'homepage.tentang')->name('tentang');
+Route::view('kontak', 'homepage.kontak')->name('about');
 

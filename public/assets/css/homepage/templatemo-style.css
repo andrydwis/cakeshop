@@ -23,6 +23,10 @@ h4,
     font-family: "Quattrocento", serif;
 }
 
+.sans-font{
+    font-family: 'Nunito Sans';
+}
+
 .border-bottom {
     margin-bottom: 60px;
     padding-bottom: 20px;
@@ -1009,12 +1013,21 @@ section.blog-page .page-number li a:hover {
 }
 
 .blog-item {
-    margin-bottom: 30px;
+    margin-bottom: 100px;
 }
 
 .blog-item .down-content {
-    background-color: #f2f6ff;
-    padding: 20px 30px;
+    background-color: #f9fbff;
+    padding: 35px 30px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+
+}
+
+.blog-item .down-content p{
+    color: #757575;
+    font-size: 15px;
+    
 }
 
 .blog-item .down-content h4 {
