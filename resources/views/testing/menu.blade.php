@@ -25,8 +25,14 @@ http://www.templatemo.com/tm-507-victory
 
 <body>
     <div class="header">
-        <div class="container">
-            <a href="#" class="navbar-brand scroll-top">Victory</a>
+        <div class="container container-logo">
+            <div class="logo">
+                <div>
+                    <a href="#" class="navbar-brand scroll-top">
+                        <img class="logo-img" src="{{asset('assets/img/homepage/logo.png')}}" alt="" srcset="">
+                    </a>
+                </div>
+            </div>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
                     <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
@@ -39,10 +45,13 @@ http://www.templatemo.com/tm-507-victory
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="menu.html">Our Menus</a></li>
-                        <li><a href="blog.html">Blog Entries</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="index.html">Beranda</a></li>
+                        @auth
+                        <li><a href="{{route('dashboard')}}">Dashboard</a></li>
+                        @endauth
+                        <li><a href="menu.html">Menu Kami</a></li>
+                        <li><a href="blog.html">Kontak</a></li>
+                        <li><a href="contact.html">Tentang Kami</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -54,283 +63,187 @@ http://www.templatemo.com/tm-507-victory
     <!--/.header-->
 
 
-    <section class="page-heading">
+    <section class="page-heading" style="background-image: url({{asset('assets/img/homepage/heading-bg.jpg')}});
+">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Our Menus</h1>
-                    <p>Curabitur at dolor sed felis lacinia ultricies sit amet vel sem. Vestibulum diam leo, sodales tempor lectus sed, varius gravida mi.</p>
+                    <h1>Menu Kami</h1>
+                    <p>berbagai makanan camilan unik dan menarik, bermacam kue kering dan juga aneka macam pizza</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-
     <section class="breakfast-menu">
+        <!-- delete me -->
+        <p>
+            <h4>
+                note : ulangi sebanyak kategori yang ada
+            </h4>
+        </p>
+        <!-- delete me -->
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-12">
+                    <div class="breakfast-menu-content" style="background-color: #f2f6ff;">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="left-image">
+                                    <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="Breakfast">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h2>Nama Kategori</h2>
+
+                                <!-- delete me -->
+                                <p>
+                                    <h4>
+                                        note : ulangi sebanyak total jumlah makanan
+                                    </h4>
+                                </p>
+                                <!-- delete me -->
+
+                                <div id="owl-breakfast" class="owl-carousel owl-theme">
+
+                                    <!-- for each mulai disini -->
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="{{asset('assets/img/homepage/breakfast_item.jpg')}} " alt="">
+                                            <div class="price">RP 000.000</div>
+                                            <div class="text-content">
+                                                <h4 class="border-bottom-food">Nama Makanan</h4>
+                                                <p>Detail</p>
+                                                <p>
+                                                    <a href="#" class="button" data-toggle="modal" data-target="#myModal">
+                                                        Detail (trigger modal)
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="{{asset('assets/img/homepage/breakfast_item.jpg')}} " alt="">
+                                            <div class="price">RP 000.000</div>
+                                            <div class="text-content">
+                                                <h4 class="border-bottom-food">Nama Makanan</h4>
+                                                <p>Detail</p>
+                                                <p>
+                                                    <a href="#" class="button" data-toggle="modal" data-target="#myModal">
+                                                        Detail (trigger modal)
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="{{asset('assets/img/homepage/breakfast_item.jpg')}} " alt="">
+                                            <div class="price">RP 000.000</div>
+                                            <div class="text-content">
+                                                <h4 class="border-bottom-food">Nama Makanan</h4>
+                                                <p>Detail</p>
+                                                <p>
+                                                    <a href="#" class="button" data-toggle="modal" data-target="#myModal">
+                                                        Detail (trigger modal)
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- for each berakhir disini -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
                     <div class="breakfast-menu-content">
                         <div class="row">
                             <div class="col-md-5">
-                                <div class="left-image">
-                                    <img src="img/breakfast_menu.jpg" alt="Breakfast">
+                                <div class="left-image-modal">
+                                    <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="Breakfast">
                                 </div>
                             </div>
-                            <div class="col-md-7">
-                                <h2>Breakfast Menu</h2>
-                                <div id="owl-breakfast" class="owl-carousel owl-theme">
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
-                                            <div class="price">$3.50</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/lunch_item.jpg" alt="">
-                                            <div class="price">$7.25</div>
-                                            <div class="text-content">
-                                                <h4>Drink Vinegar Prism</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/dinner_item.jpg" alt="">
-                                            <div class="price">$11.50</div>
-                                            <div class="text-content">
-                                                <h4>Taiyaki Gastro Tousled</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
+                            <div class="col-md-7 modal-food">
+
+                                <div class="food-item">
+                                    <div class="food-item-content">
+                                        <h2>Nama Makanan</h2>
+                                        <h4>Harga : RP 000.000</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque adipisci et tempora unde temporibus possimus. Corrupti, magnam nemo rem velit, praesentium eveniet molestiae, facere ratione impedit cum fugit blanditiis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, possimus voluptatibus quas aut ducimus voluptatem quam fuga quia, non soluta omnis architecto modi velit
+                                        </p>
                                     </div>
                                 </div>
+                                <div class="button-group">
+                                    <a href="#" class="button-cancel" data-dismiss="modal">Batal</a>
+                                    <a href="" class="button">Pesan Sekarang</a>
+                                    <!-- delete me -->
+                                    <h4>
+                                        *keterangan : tombol pesan di arahkan ke kontak w.a
+                                    </h4>
+                                    <!-- delete me -->
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- modal -->
 
 
 
-    <section class="lunch-menu">
+    <section class="cook-delecious">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="lunch-menu-content">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <h2>Lunch Menu</h2>
-                                <div id="owl-lunch" class="owl-carousel owl-theme">
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/lunch_item.jpg" alt="">
-                                            <div class="price">$6.50</div>
-                                            <div class="text-content">
-                                                <h4>Mumble Ditch Corn</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
-                                            <div class="price">$11.75</div>
-                                            <div class="text-content">
-                                                <h4>Wayfare Lomo Core</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/dinner_item.jpg" alt="">
-                                            <div class="price">$16.50</div>
-                                            <div class="text-content">
-                                                <h4>Taiyaki Gastro Tousled</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="left-image">
-                                    <img src="img/lunch_menu.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="dinner-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="dinner-menu-content">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="left-image">
-                                    <img src="img/dinner_menu.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <h2>Dinner Menu</h2>
-                                <div id="owl-dinner" class="owl-carousel owl-theme">
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/dinner_item.jpg" alt="">
-                                            <div class="price">$8.25</div>
-                                            <div class="text-content">
-                                                <h4>Meal Apples Almonds</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/lunch_item.jpg" alt="">
-                                            <div class="price">$12.50</div>
-                                            <div class="text-content">
-                                                <h4>Ditch Corn Art</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item col-md-12">
-                                        <div class="food-item">
-                                            <img src="img/breakfast_item.jpg" alt="">
-                                            <div class="price">$16.00</div>
-                                            <div class="text-content">
-                                                <h4>Kale Chips Art Party</h4>
-                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo small batch jean ditcher meal...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section id="book-table">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>Book Your Table Now</h2>
-                    </div>
-                </div>
-                <div class="col-md-4 col-md-offset-2">
-                    <div class="left-image">
-                        <img src="img/book_left_image.jpg" alt="">
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="first-image">
+                        <img src="{{asset('assets/img/homepage/cook_01.jpg')}}" alt="">
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="right-info">
-                        <h4>Reservation</h4>
-                        <form id="form-submit" action="" method="get">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <select required name='day' onchange='this.form.()'>
-                                            <option value="">Select day</option>
-                                            <option value="Monday">Monday</option>
-                                            <option value="Tuesday">Tuesday</option>
-                                            <option value="Wednesday">Wednesday</option>
-                                            <option value="Thursday">Thursday</option>
-                                            <option value="Friday">Friday</option>
-                                            <option value="Saturday">Saturday</option>
-                                            <option value="Sunday">Sunday</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <select required name='hour' onchange='this.form.()'>
-                                            <option value="">Select hour</option>
-                                            <option value="10-00">10:00</option>
-                                            <option value="12-00">12:00</option>
-                                            <option value="14-00">14:00</option>
-                                            <option value="16-00">16:00</option>
-                                            <option value="18-00">18:00</option>
-                                            <option value="20-00">20:00</option>
-                                            <option value="22-00">22:00</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <input name="name" type="name" class="form-control" id="name" placeholder="Full name" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <input name="phone" type="phone" class="form-control" id="phone" placeholder="Phone number" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <select required class="person" name='persons' onchange='this.form.()'>
-                                            <option value="">How many persons?</option>
-                                            <option value="1-Person">1 Person</option>
-                                            <option value="2-Persons">2 Persons</option>
-                                            <option value="3-Persons">3 Persons</option>
-                                            <option value="4-Persons">4 Persons</option>
-                                            <option value="5-Persons">5 Persons</option>
-                                            <option value="6-Persons">6 Persons</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <button type="submit" id="form-submit" class="btn">Book Table</button>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="cook-content">
+                        <h4>Customer Service</h4>
+                        <div class="contact-content">
+                            <span>Hubungi kami untuk info lebih lanjut :</span>
+                            <h6>ganti kontak w.a</h6>
+                        </div>
+                        <span>atau</span>
+                        <div class="primary-white-button">
+                            <a href="#" class="scroll-link" data-id="book-table">Chat dengan kami</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="second-image">
+                        <img src="{{asset('assets/img/homepage/cook_01.jpg')}}" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
 
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <p>Copyright &copy; 2017 Victory Template</p>
-                </div>
-                <div class="col-md-4">
-                    <ul class="social-icons">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <p>Designed by <em>templatemo</em></p>
+                <div class="coltext-center">
+                    <p>Lely Cake - 2020</p>
                 </div>
             </div>
         </div>
@@ -390,6 +303,12 @@ http://www.templatemo.com/tm-507-victory
                 log: function() {}
             };
         }
+    </script>
+
+    <script>
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').focus()
+        })
     </script>
     <!-- CustomJS -->
 </body>

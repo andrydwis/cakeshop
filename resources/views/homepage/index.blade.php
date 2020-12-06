@@ -24,8 +24,14 @@
 <body>
 
     <div class="header">
-        <div class="container">
-            <a href="#" class="navbar-brand scroll-top brand-font">Lely Cake</a>
+        <div class="container container-logo">
+            <div class="logo">
+                <div>
+                    <a href="#" class="navbar-brand scroll-top">
+                        <img class="logo-img" src="{{asset('assets/img/homepage/logo.png')}}" alt="" srcset="">
+                    </a>
+                </div>
+            </div>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
                     <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
@@ -56,14 +62,15 @@
     <!--/.header-->
 
 
-    <section class="banner" style="background-image: url('{{asset('assets/img/homepage/banner-bg.jpg')}}');">
+    <section class="banner" style="">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <h4>Lely cake</h4>
-                    <h2>Kue Kering terbaik di Malang</h2>
-                    <p>Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl
-                        non, tempor interdum nisl.</p>
+                    <h2>Nikmati Renyahnya</h2>
+                    <p>
+                        Produk olahan kue 100% halal yang aman, bergizi, dan berkualitas sesuai kepuasan konsumen
+                    </p>
                     <div class="primary-button">
                         <a href="https://api.whatsapp.com/send?phone={{$contact->whatsapp}}" target="_blank" data-id="book-table">Pesan Sekarang</a>
                     </div>
@@ -72,7 +79,7 @@
         </div>
     </section>
 
-    <section class="featured-food">
+    <section class="featured-food" style="background: url({{asset('assets/img/homepage/bg.svg')}});">
         <div class="container">
             <div class="row">
                 <div class="heading">
@@ -90,11 +97,14 @@
                             <h4 class="border-bottom-food">{{$product->name}}</h4>
                             <p>keterangan</p>
                             <p>
-                                <a href="#">
-                                    <div class="food-link">
-                                        link menuju detail makanan
-                                    </div>
+                                <a href="#" class="button" data-toggle="modal" data-target="#myModal">
+                                    Detail
                                 </a>
+                                <!-- delete me -->
+                                <h4>
+                                    note : arahkan ke modal
+                                </h4>
+                                <!-- delete me -->
                             </p>
                         </div>
                     </div>
@@ -104,22 +114,67 @@
         </div>
     </section>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="breakfast-menu-content">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="left-image-modal">
+                                    <img src="{{asset('assets/img/homepage/breakfast_menu.jpg')}}" alt="Breakfast">
+                                </div>
+                            </div>
+                            <div class="col-md-7 modal-food">
+
+                                <div class="food-item">
+                                    <div class="food-item-content">
+                                        <h2>Nama Makanan</h2>
+                                        <h4>Harga : RP 000.000</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque adipisci et tempora unde temporibus possimus. Corrupti, magnam nemo rem velit, praesentium eveniet molestiae, facere ratione impedit cum fugit blanditiis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, possimus voluptatibus quas aut ducimus voluptatem quam fuga quia, non soluta omnis architecto modi velit
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="button-group">
+                                    <a href="#" class="button-cancel" data-dismiss="modal">Batal</a>
+                                    <a href="" class="button">Pesan Sekarang</a>
+                                    <!-- delete me -->
+                                    <h4>
+                                        *keterangan : tombol pesan di arahkan ke kontak w.a
+                                    </h4>
+                                    <!-- delete me -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal -->
+
     <section class="services">
         <div class="container">
             <div class="row">
                 <h2 class="text-center border-bottom">
                     Kategori
                 </h2>
-                @foreach($categories as $category)
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="category-list">
+
+                    @foreach($categories as $category)
                     <div class="service-item">
                         <a href="menu.html">
                             <img src="{{asset('assets/img/homepage/cook_breakfast.png')}}" alt="Breakfast">
                             <h4>{{$category->name}}</h4>
                         </a>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
+
             </div>
         </div>
     </section>
@@ -174,7 +229,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <p class="brand-font">Lely Cake - 2020</p>
+                    <p>Lely Cake - 2020</p>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ http://www.templatemo.com/tm-507-victory
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Mukta+Vaani:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quattrocento&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@0;1&display=swap");
 
 h2,
 .brand-font,
@@ -34,12 +34,102 @@ h4,
     margin-bottom: 20px;
     border-bottom: 1px solid #f3826f;
 }
+
+.logo {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.logo-img {
+    max-width: 200px;
+    object-position: center;
+}
+
+.banner {
+    background: url(https://images.unsplash.com/photo-1568051243858-533a607809a5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)
+        rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
+    object-fit: cover;
+}
+
+.button {
+    background: #f2745f;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: medium;
+    transition: 200ms all;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+    color: white;
+}
+
+.button-cancel {
+    background: white;
+    border: 2px solid #f2745f;
+    padding: 5px;
+    border-radius: 30px;
+     display: flex;
+    justify-content: center;
+    color: #f2745f;
+    font-size: medium;
+    transition: 200ms all;
+ 
+}
+
+.button-cancel:hover {
+    background: #f2745f;
+    color: white;
+    text-decoration: none;
+}
+
+.button-group {
+    position: relative;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-list .service-item {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.modal-food {
+    min-height: 50vh;
+    /* border: 2px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 640px) {
+    .category-list {
+        display: block;
+    }
+
+    .modal-food{
+        height: 100%;
+    }
+}
+
 /* CUSTOM */
 
 * {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 body {
@@ -165,16 +255,13 @@ p {
     font-weight: 400;
 }
 
-.navbar-nav li{
+.navbar-nav li {
     transition: 300ms;
 }
 
-.navbar-nav li:hover{
+.navbar-nav li:hover {
     transform: scale(1.2);
 }
-
-
-
 
 .header.active {
     background-color: #eaf0ff;
@@ -464,9 +551,11 @@ section.featured-food {
 }
 
 .featured-food .food-item {
-    background-color: #f2f6ff;
+    background-color: #ffffff;
+    border: 2px solid #e4a49b;
     padding: 30px;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
 .food-item h2 {
@@ -480,7 +569,10 @@ section.featured-food {
 }
 
 .food-item img {
+    /* max-width: 300px; */
     width: 100%;
+    max-height: 200px;
+    object-fit: cover;
     overflow: hidden;
     position: relative;
 }
@@ -488,7 +580,7 @@ section.featured-food {
 .food-item .price {
     font-size: 17px;
     color: #f2745f;
-    font-weight: 500;
+    font-weight: 900;
     letter-spacing: 0.5px;
     padding: 8px 14px;
     position: absolute;
@@ -671,7 +763,6 @@ footer ul li i:hover {
 
 section.page-heading {
     padding: 80px 0px;
-    background-image: url(../img/heading-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -703,13 +794,26 @@ section.breakfast-menu .price {
 }
 
 .breakfast-menu-content {
-    background-color: #f2f6ff;
+    background-color: white;
     padding: 30px 0px 30px 30px;
 }
 
 .breakfast-menu-content .left-image img {
+    /* min-height: 420px; */
     width: 100%;
+    /* max-width: 360px; */
+    object-fit: cover;
     overflow: hidden;
+    position: relative;
+}
+
+ .left-image-modal img {
+    min-height: 420px;
+    width: 100%;
+    max-width: 360px;
+    object-fit: cover;
+    overflow: hidden;
+    position: relative;
 }
 
 .breakfast-menu-content .left-image {
