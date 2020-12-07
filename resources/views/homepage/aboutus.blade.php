@@ -43,13 +43,13 @@
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{route('init')}}">Beranda</a></li>
+                    <li><a href="{{route('init')}}">Beranda</a></li>
                         @auth
                         <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                         @endauth
                         <li><a href="{{route('menu')}}">Menu Kami</a></li>
-                        <li><a href="blog.html">Kontak</a></li>
-                        <li><a href="contact.html">Tentang Kami</a></li>
+                        <li><a href="{{route('information')}}">Kontak</a></li>
+                        <li><a href="{{route('aboutus')}}">Tentang Kami</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -59,7 +59,6 @@
         <!--/.container-->
     </div>
     <!--/.header-->
-
 
     <section class="page-heading">
         <div class="container">
@@ -71,7 +70,6 @@
         </div>
     </section>
 
-
     <section class="blog-page">
         <div class="container">
             <div class="row">
@@ -79,13 +77,7 @@
                     <div class="blog-item">
                         <div class="down-content">
                             <h4>Lely Cake</h4>
-                            <p>Vivamus venenatis mi enim, ut gravida sem viverra sit amet. Nam ullamcorper dui nec risus
-                                malesuada fringilla. Aliquam erat volutpat. Aliquam a varius odio. Quisque iaculis massa
-                                vel nunc porta vehicula. Nulla consectetur iaculis elit. Vivamus euismod lorem rutrum
-                                iaculis commodo. Cras congue nisi non varius tincidunt.
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, nihil eaque necessitatibus expedita amet, illo, recusandae reiciendis tenetur natus deserunt porro autem velit! Accusamus veniam atque possimus aspernatur harum debitis!
-                            </p>
-
+                            {!!$other->description!!}
                         </div>
                     </div>
                 </div>
@@ -105,7 +97,6 @@
             </div>
         </div>
     </footer>
-
 
 </body>
 

@@ -49,8 +49,8 @@
                         <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                         @endauth
                         <li><a href="{{route('menu')}}">Menu Kami</a></li>
-                        <li><a href="blog.html">Kontak</a></li>
-                        <li><a href="contact.html">Tentang Kami</a></li>
+                        <li><a href="{{route('information')}}">Kontak</a></li>
+                        <li><a href="{{route('aboutus')}}">Tentang Kami</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

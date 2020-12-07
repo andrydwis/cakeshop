@@ -45,13 +45,13 @@ http://www.templatemo.com/tm-507-victory
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{route('init')}}">Beranda</a></li>
+                    <li><a href="{{route('init')}}">Beranda</a></li>
                         @auth
                         <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                         @endauth
                         <li><a href="{{route('menu')}}">Menu Kami</a></li>
-                        <li><a href="blog.html">Kontak</a></li>
-                        <li><a href="contact.html">Tentang Kami</a></li>
+                        <li><a href="{{route('information')}}">Kontak</a></li>
+                        <li><a href="{{route('aboutus')}}">Tentang Kami</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

@@ -27,6 +27,10 @@ Route::get('/', [HomeController::class, 'index'])->name('init');
 
 Route::get('menu', [HomeController::class, 'menu'])->name('menu');
 
+Route::get('information', [HomeController::class, 'information'])->name('information');
+
+Route::get('aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+
 Route::middleware(['auth'])->group(function () {
     //dashboard
     Route::get('dashboard', DashboardController::class)->name('dashboard');
