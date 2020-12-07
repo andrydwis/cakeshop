@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function menu(){
         $data = [
             'contact' => Contact::first(),
-            'products' => Product::all()->unique('category_id'),
+            'products' => Product::all(),
             'categories' => Category::all()
         ];
         return view('homepage.menu', $data);
