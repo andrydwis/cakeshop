@@ -43,7 +43,7 @@
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                    <li><a href="{{route('init')}}">Beranda</a></li>
+                        <li><a href="{{route('init')}}">Beranda</a></li>
                         @auth
                         <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                         @endauth
@@ -103,29 +103,18 @@
                                     Email : {{$contact->email}}
                                 </h4>
                             </p>
+                            <p>
+                                <h4 class="sans-font">
+                                    Lokasi : {{$other->address}}
+                                </h4>
+                            </p>
+                            <br>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7912.946618131778!2d112.56353381108853!3d-7.412751441450427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78090b3f888987%3A0x84f2e1bb3e5a8be9!2sKemangsen%2C%20BalongBendo%2C%20Sidoarjo%20Regency%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1607251643713!5m2!1sen!2sid" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                         </div>
                         <span>atau</span>
                         <div class="primary-white-button">
                             <a href="https://api.whatsapp.com/send?phone={{$contact->whatsapp}}" target="_blank" data-id="book-table">Chat dengan kami</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="map">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>
-                        <h4 class="sans-font">
-                            Lokasi :
-                        </h4>
-                    </p>
-                    <h1>{{$other->address}}</h1>
-                    <div id="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7912.946618131778!2d112.56353381108853!3d-7.412751441450427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78090b3f888987%3A0x84f2e1bb3e5a8be9!2sKemangsen%2C%20BalongBendo%2C%20Sidoarjo%20Regency%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1607251643713!5m2!1sen!2sid" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
             </div>
