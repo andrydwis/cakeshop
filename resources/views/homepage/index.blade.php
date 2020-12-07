@@ -218,62 +218,69 @@
     </footer>
 
 
-    <!-- Template JS File -->
-    <script src="{{ ('assets/js/scripts.js') }}"></script>
+        <!-- Template JS File -->
+        <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="jquery-1.11.2.min.js"><\/script>')
-    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="jquery-1.11.2.min.js"><\/script>')
+</script>
 
-    <script src="{{('assets/js/homepage/vendor/bootstrap.min.js')}}"></script>
+<script src="{{ asset('assets/js/homepage/vendor/bootstrap.min.js')}}"></script>
 
-    <script src="{{('assets/js/homepage/plugins.js')}}"></script>
-    <script src="{{('assets/js/homepage/main.js')}}"></script>
+<script src="{{ asset('assets/js/homepage/plugins.js')}}"></script>
+<script src="{{ asset('assets/js/homepage/main.js')}}"></script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // navigation click actions 
-            $('.scroll-link').on('click', function(event) {
-                event.preventDefault();
-                var sectionID = $(this).attr("data-id");
-                scrollToID('#' + sectionID, 750);
-            });
-            // scroll to top action
-            $('.scroll-top').on('click', function(event) {
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 'slow');
-            });
-            // mobile nav toggle
-            $('#nav-toggle').on('click', function(event) {
-                event.preventDefault();
-                $('#main-nav').toggleClass("open");
-            });
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event) {
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
         });
-        // scroll function
-        function scrollToID(id, speed) {
-            var offSet = 0;
-            var targetOffset = $(id).offset().top - offSet;
-            var mainNav = $('#main-nav');
-            $('html,body').animate({
-                scrollTop: targetOffset
-            }, speed);
-            if (mainNav.hasClass("open")) {
-                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
-                mainNav.removeClass("open");
-            }
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function(event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed) {
+        var offSet = 0;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({
+            scrollTop: targetOffset
+        }, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
         }
-        if (typeof console === "undefined") {
-            console = {
-                log: function() {}
-            };
-        }
-    </script>
-    <!-- CustomJS -->
-    @yield('customJS')
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() {}
+        };
+    }
+</script>
+<!-- CustomJS -->
+@yield('customJS')
+
+<script>
+    $('#myModal').on('shown.bs.modal', function() {
+        $('#myInput').focus()
+    })
+</script>
+<!-- CustomJS -->
 </body>
 
 </html>
