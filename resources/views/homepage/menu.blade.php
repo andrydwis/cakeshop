@@ -45,7 +45,7 @@ http://www.templatemo.com/tm-507-victory
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                    <li><a href="{{route('init')}}">Beranda</a></li>
+                        <li><a href="{{route('init')}}">Beranda</a></li>
                         @auth
                         <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                         @endauth
@@ -83,24 +83,24 @@ http://www.templatemo.com/tm-507-victory
                         <div class="row">
                             <div class="col-md-12">
                                 <h2>{{$category->name}}</h2>
-                                    @foreach($category->products as $product)
-                                    <div class="item col-md-4">
-                                        <div class="food-item">
-                                            <img src="{{asset('storage/'.$product->image)}}" alt="">
-                                            <div class="price">Rp. {{$product->price}}</div>
-                                            <div class="text-content">
-                                                <h4 class="border-bottom-food">{{$product->name}}</h4>
-                                                <p>{{ Str::limit($product->description, 120) }}</p>
-                                                <p>
-                                                    <button class="btn btn-block button" data-toggle="modal" data-target="#{{$product->id}}">
-                                                        Detail
-                                                    </button>
-                                                </p>
-                                            </div>
+                                @foreach($category->products as $product)
+                                <div class="item col-md-4">
+                                    <div class="food-item">
+                                        <img src="{{asset('storage/'.$product->image)}}" alt="">
+                                        <div class="price">Rp. {{$product->price}}</div>
+                                        <div class="text-content">
+                                            <h4 class="border-bottom-food">{{$product->name}}</h4>
+                                            <p>{{ Str::limit($product->description, 120) }}</p>
+                                            <p>
+                                                <button class="btn btn-block button" data-toggle="modal" data-target="#{{$product->id}}">
+                                                    Detail
+                                                </button>
+                                            </p>
                                         </div>
                                     </div>
-                                    @endforeach
-                                    <!-- for each berakhir disini -->
+                                </div>
+                                @endforeach
+                                <!-- for each berakhir disini -->
                             </div>
                         </div>
                     </div>
@@ -191,19 +191,19 @@ http://www.templatemo.com/tm-507-victory
 
 
     <!-- Template JS File -->
-    <script src="{{ ('assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="jquery-1.11.2.min.js"><\/script>')
     </script>
 
-    <script src="{{('assets/js/homepage/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('assets/js/homepage/vendor/bootstrap.min.js')}}"></script>
 
-    <script src="{{('assets/js/homepage/plugins.js')}}"></script>
-    <script src="{{('assets/js/homepage/main.js')}}"></script>
+    <script src="{{ asset('assets/js/homepage/plugins.js')}}"></script>
+    <script src="{{ asset('assets/js/homepage/main.js')}}"></script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             // navigation click actions 
@@ -244,6 +244,8 @@ http://www.templatemo.com/tm-507-victory
             };
         }
     </script>
+    <!-- CustomJS -->
+    @yield('customJS')
 
     <script>
         $('#myModal').on('shown.bs.modal', function() {
